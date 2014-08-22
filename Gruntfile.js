@@ -2,7 +2,17 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     concat: {
+      options : {},
+      client: {
+        src: ['public/client/**/*.js'],
+        dest: 'public/dist/application.js'
+      },
+      lib: {
+        src: ['public/lib/**/*.js'],
+        dest: 'public/dist/resources.js'
+      }
     },
 
     mochaTest: {
@@ -21,6 +31,12 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      my_target: {
+        files: {
+          'public/dist/application.min.js': ['dist/application.js'],
+          'public/dist/resources.min.js': ['dist/resources.js']
+        }
+      }
     },
 
     jshint: {
@@ -105,7 +121,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy', [
-    // add your deploy tasks here
+    'concat', 'uglify'
   ]);
 
 
