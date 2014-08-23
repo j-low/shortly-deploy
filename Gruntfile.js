@@ -6,11 +6,11 @@ module.exports = function(grunt) {
     concat: {
       options : {},
       client: {
-        src: ['public/lib/jquery.js', 'public/lib/underscore.js', 'public/lib/backbone.js', 'public/lib/handlebars.js'],
+        src: ['public/client/**/*.js'],
         dest: 'public/dist/application.js'
       },
       lib: {
-        src: ['public/lib/**/*.js'],
+        src: ['public/lib/jquery.js', 'public/lib/underscore.js', 'public/lib/backbone.js', 'public/lib/handlebars.js'],
         dest: 'public/dist/resources.js'
       }
     },
