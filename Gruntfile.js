@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     concat: {
       options : {},
       client: {
-        src: ['public/client/jquery.js', 'public/client/underscore.js', 'public/client/backbone.js', 'public/client/handlebars.js'],
+        src: ['public/lib/jquery.js', 'public/lib/underscore.js', 'public/lib/backbone.js', 'public/lib/handlebars.js'],
         dest: 'public/dist/application.js'
       },
       lib: {
@@ -33,8 +33,8 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'public/dist/application.min.js': ['dist/application.js'],
-          'public/dist/resources.min.js': ['dist/resources.js']
+          'public/dist/application.min.js': ['public/dist/application.js'],
+          'public/dist/resources.min.js': ['public/dist/resources.js']
         }
       }
     },
