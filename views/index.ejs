@@ -41,7 +41,9 @@
   });
 </script>
 
-
+<%if(process.env.PORT) {%>
+  <script src='/dist/application.min.js'></script>
+<%} else {%>
   <script src='/client/app.js'></script>
   <script src='/client/link.js'></script>
   <script src='/client/links.js'></script>

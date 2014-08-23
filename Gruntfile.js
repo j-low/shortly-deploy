@@ -5,10 +5,11 @@ module.exports = function(grunt) {
 
     concat: {
       options : {},
+      //TODO: FIX THIS SHIT
       // client: {
       //   src: ['public/client/**/*.js'],
       //   dest: 'public/dist/application.js'
-      // },
+      // // },
       lib: {
         src: ['public/lib/jquery.js', 'public/lib/underscore.js', 'public/lib/backbone.js', 'public/lib/handlebars.js'],
         dest: 'public/dist/resources.js'
@@ -41,7 +42,7 @@ module.exports = function(grunt) {
 
     jshint: {
       files: [
-        // Add filespec list here
+        'public/**/*.js'
       ],
       options: {
         force: 'true',
@@ -106,10 +107,11 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
-    'mochaTest'
+    'nodemon', 'mochaTest'
   ]);
 
   grunt.registerTask('build', [
+    'concat', 'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
@@ -121,7 +123,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy', [
-    'concat', 'uglify'
+    'jshint', 'mochaTest'
   ]);
 
 
